@@ -1,2 +1,2 @@
-# ClassesBàsiques
-Classes bàsiques d'exemple en Java
+# Pràctiques
+Pràctiques de classes i objectes

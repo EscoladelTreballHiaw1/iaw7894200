@@ -41,7 +41,7 @@ public class Bicycle {
      */
     public Bicycle() {
         this.model = "Mountain bike";
-        this.frontSprocket = 1;
+        this.frontSprocket = 3;
         this.rearSprocket = 1;
         this.nFrontSprockets = 3;
         this.nRearSprockets = 7;
@@ -57,10 +57,6 @@ public class Bicycle {
      */
     public Bicycle(int nFrontSprockets, int nRearSprockets, double v) {
         this.model = "Mountain bike";
-        //if the nFrontSprockets is less than 3, put nFrontSprockets to 3
-        if (nFrontSprockets < 3 ) {
-            nFrontSprockets = 3;
-        }
         this.nFrontSprockets = nFrontSprockets;
         this.nRearSprockets = nRearSprockets;
         this.frontSprocket = nFrontSprockets;
@@ -82,10 +78,6 @@ public class Bicycle {
         this.model = model;
         this.frontSprocket = frontSprocket;
         this.rearSprocket = rearSprocket;
-        //if the nFrontSprockets is less than 3, put nFrontSprockets to 3
-        if (nFrontSprockets < 3 ) {
-            nFrontSprockets = 3;
-        }
         this.nFrontSprockets = nFrontSprockets;
         this.nRearSprockets = nRearSprockets;
         this.v = v;

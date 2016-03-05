@@ -167,11 +167,35 @@ public class Bicycle {
     /**
      * stop the bicycle puting the speed to 0
      */
-    public void stop() {         
-        while (this.v > 0) {           
-           brake();
-        }        
+    public void stop() {   
+        this.v = 0.0;
+        //go braking the bike while the speed is not null
+//        while (this.v > 0) {           
+//           brake();
+//        }        
     }
+    
+    /**
+     * slowing down the bicycle
+     * 
+     */
+    public boolean slowDown() {
+        boolean isSlowedDown = true;
+        //slow down the bike is only possible if the engaged frontSprocket begger than 1 
+        //and the engaged rearSprocket is less than nFronSprockets
+        if (frontSprocket > 1 && rearSprocket < nRearSprockets) {
+            //increase the rear sprocket
+            changeRearSprocket(1);
+            //decrease the front sprocket
+            changeFrontSprocket(-1);
+            //decrease the rear sprocket
+            changeRearSprocket(-1);
+        }  else {
+            isSlowedDown = false;
+        }
+        return isSlowedDown;
+    }    
+    
     // Setter and getters
     public String getModel() {
         return model;

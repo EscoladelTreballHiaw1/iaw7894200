@@ -17,7 +17,7 @@ package bicycle;
  * so on.
  */
 public class Bicycle {
-
+    
     /** The bicycle's model. */
     private String model;
     /** The engaged front sprocket. */
@@ -34,7 +34,7 @@ public class Bicycle {
     private final static int VMAX = 100;
     /** Increment of the bicycle speed */
     private final static int DV = 5;
-
+    
     /**
      * Constructor by default. Creates a stopped mountain bike with 3 front sprockets, 7 rear sprockets and with the
      * first front and rear sprockets engaged.
@@ -47,7 +47,7 @@ public class Bicycle {
         this.nRearSprockets = 7;
         this.v = 0;
     }
-
+    
     /**
      * Constructor. Creates a mountain bike with the first rear sprocket engaged and the last front sprocket engaged
      * 
@@ -67,7 +67,7 @@ public class Bicycle {
         this.rearSprocket = 1;
         this.v = v;
     }
-
+    
     /**
      * Constructor.
      * 
@@ -81,7 +81,20 @@ public class Bicycle {
     public Bicycle(String model, int frontSprocket, int rearSprocket, int nFrontSprockets, int nRearSprockets, double v) {
         this.model = model;
         this.frontSprocket = frontSprocket;
-        this.rearSprocket = rearSprocket;
+        //if the value of the rearSprocket is not between [1,nRearSprockets], it we'll be impossible to change it
+        if (rearSprocket < 1 || rearSprocket > nRearSprockets) {
+            throw new RuntimeException("change rearSprocket is impossible: Choose rearSprocket between [1,"+nRearSprockets+"]");
+        } else {
+            this.rearSprocket = rearSprocket;
+        }
+        
+         //if the value of the frontSprocket is not between [1,nFrontSprockets], it we'll be impossible to change it
+         if (frontSprocket < 1 || frontSprocket > nFrontSprockets) {
+            throw new RuntimeException("change frontSprocket is impossible: Choose frontSprocket between [1,"+nFrontSprockets+"]");
+        } else {
+        this.frontSprocket = frontSprocket;
+        }
+        
         //if the nFrontSprockets is less than 3, put nFrontSprockets to 3
         if (nFrontSprockets < 3 ) {
             nFrontSprockets = 3;
@@ -90,7 +103,7 @@ public class Bicycle {
         this.nRearSprockets = nRearSprockets;
         this.v = v;
     }
-
+    
     /**
      * Changes the engaged front sprocket. Increases or decreases the front sprocket by 1. The bicycle can't be stopped.
      * 
@@ -110,7 +123,7 @@ public class Bicycle {
         }
         return isChanged;
     }
-
+    
     /**
      * Changes the engaged rear sprocket. Increases or decreases the rear sprocket by 1. The bicycle can't be stopped.
      * 
@@ -130,7 +143,7 @@ public class Bicycle {
         }
         return isChanged;
     }
-
+    
     /**
      * Accelerates the bicycle.
      */
@@ -140,7 +153,7 @@ public class Bicycle {
             newV = Bicycle.VMAX;
         this.v = newV;
     }
-
+    
     /**
      * Decreases the velocity of the bicycle.
      */
@@ -150,36 +163,46 @@ public class Bicycle {
             newV = 0;
         this.v = newV;
     }
-
+    
     // Setter and getters
     public String getModel() {
         return model;
     }
-
+    
     public void setModel(String model) {
         this.model = model.trim();
     }
-
+    
     public int getRearSprocket() {
         return rearSprocket;
     }
-
+    
     public void setRearSprocket(int rearSprocket) {
-        this.rearSprocket = rearSprocket;
+                    //if the value of the rearSprocket is not between [1,nRearSprockets], it we'll be impossible to change it
+        if (rearSprocket < 1 || rearSprocket > nRearSprockets) {
+            throw new RuntimeException("change rearSprocket is impossible: Choose rearSprocket between [1,"+nRearSprockets+"]");
+        } else {
+            this.rearSprocket = rearSprocket;
+        }
     }
-
+    
     public int getFrontSprocket() {
         return frontSprocket;
     }
-
+    
     public void setFrontSprocket(int frontSprocket) {
+          //if the value of the |frontSprocket| is not between [1,nFrontSprockets], it we'll be impossible to change it
+         if (frontSprocket < 1 || frontSprocket > nFrontSprockets) {
+            throw new RuntimeException("change frontSprocket is impossible: Choose frontSprocket between [1,"+nFrontSprockets+"]");
+        } else {
         this.frontSprocket = frontSprocket;
+        }
     }
-
+    
     public double getV() {
         return v;
     }
-
+    
     public void setV(double v) {
         this.v = v;
     }

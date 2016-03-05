@@ -180,7 +180,7 @@ public class Bicycle {
      * 
      */
     public boolean slowDown() {
-        boolean isSlowedDown = true;
+        boolean isDown = true;
         //slow down the bike is only possible if the engaged frontSprocket begger than 1 
         //and the engaged rearSprocket is less than nFronSprockets
         if (frontSprocket > 1 && rearSprocket < nRearSprockets) {
@@ -191,10 +191,31 @@ public class Bicycle {
             //decrease the rear sprocket
             changeRearSprocket(-1);
         }  else {
-            isSlowedDown = false;
+            isDown = false;
         }
-        return isSlowedDown;
+        return isDown;
     }    
+   /**
+     * up of the bicycle
+     * 
+     */
+    public boolean speedUp() {
+        boolean isUp = true;
+        //up of the bike is only possible if the engaged frontSprocket is less than the nFronSprockets
+        //and the engaged rearSprocket is greater than 1
+        if (frontSprocket < nFrontSprockets && rearSprocket > 1 ) {
+            //decrease the rear sprocket
+            changeRearSprocket(-1);
+            //increase the front sprocket
+            changeFrontSprocket(1);            
+            //increase the rear sprocket
+            changeRearSprocket(1);
+            
+        }  else {
+            isUp = false;
+        }
+        return isUp;
+    }     
     
     // Setter and getters
     public String getModel() {

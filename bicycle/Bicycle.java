@@ -164,6 +164,14 @@ public class Bicycle {
         this.v = newV;
     }
     
+    /**
+     * stop the bicycle puting the speed to 0
+     */
+    public void stop() {         
+        while (this.v > 0) {           
+           brake();
+        }        
+    }
     // Setter and getters
     public String getModel() {
         return model;

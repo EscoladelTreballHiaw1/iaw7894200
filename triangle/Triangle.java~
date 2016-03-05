@@ -1,0 +1,27 @@
+/*
+ * Bicycle.java
+ * 
+ * Copyright 2016 Samba Gueye <gueye.samba@gmail.com>
+ * 
+ * This is free software, licensed under the GNU General Public License v3.
+ * See http://www.gnu.org/licenses/gpl.html for more information.
+ */
+
+package triangle;
+
+/**
+ * Modelizes a triangle.
+ * 
+ * a tringle can be acute scalene triangle , equilateral triangle, isoceles triangle , obtuse scalene triangle , isoceles right triangle o right  
+ * the sum of the two sides may be greater the the third side.
+ */
+public class Triangle {
+    
+    // side 1
+    private double side1;
+    // side 2
+    private double side2;
+    // side 2
+    private double side2;
+    
+    

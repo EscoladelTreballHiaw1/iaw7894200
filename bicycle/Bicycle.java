@@ -41,11 +41,11 @@ public class Bicycle {
      */
     public Bicycle() {
         this.model = "Mountain bike";
-        this.frontSprocket = 1;
-        this.rearSprocket = 1;
+        this.frontSprocket = 5;
+        this.rearSprocket = 6;
         this.nFrontSprockets = 3;
         this.nRearSprockets = 7;
-        this.v = 0;
+        this.v = 10.2;
     }
     
     /**
@@ -209,8 +209,7 @@ public class Bicycle {
             //increase the front sprocket
             changeFrontSprocket(1);            
             //increase the rear sprocket
-            changeRearSprocket(1);
-            
+            changeRearSprocket(1);            
         }  else {
             isUp = false;
         }
